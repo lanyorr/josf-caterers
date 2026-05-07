@@ -1,6 +1,3 @@
-# Joseph Caterers — Premium HTML Template
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -611,6 +608,19 @@
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('img').forEach((img, index) => {
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.referrerPolicy = 'no-referrer';
+
+      img.onerror = function () {
+        if (this.dataset.fallbackApplied) return;
+        this.dataset.fallbackApplied = 'true';
+        this.src = `https://picsum.photos/seed/catering-${index}/1200/800`;
+      };
+    });
+  </script>
 </body>
 </html>
 ```
